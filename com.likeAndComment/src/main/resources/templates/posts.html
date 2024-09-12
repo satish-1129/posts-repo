@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Your Post</title>
+</head>
+<body>
+	<h2>Post Details</h2>
+	<div class="profile-details">
+	<span th:each = "post:${allPosts}">
+	<p><strong>Caption</strong> <span th:text="${post.caption}"></span></p>
+	<p><strong>Photo:</strong></p>
+	<img th:if="${post.photoBase64}" th:src="'data:image/jpeg;base64,' + ${post.photoBase64}" 
+        alt="Profile Photo" />
+        
+        <p><strong>Likes:</strong> <span th:text="${lac.likes}"></span></p>
+        <a href="/likePost">Like this Post</a>
+        
+        <form action="/addComment" method="post">
+        <textarea name="comments"></textarea>
+        <input type="submit">
+        </form>
+        <hr />
+	</span>
+	
+	
+      
+	
+	</div>
+</body>
+</html>
